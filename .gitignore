@@ -1,0 +1,9 @@
+## File types to ignore
+.ipynb_checkpoints
+.DS_Store
+.env
+
+## Directories to ignore
+data/external/
+data/interim/
+data/raw/
