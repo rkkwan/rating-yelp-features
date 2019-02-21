@@ -22,7 +22,7 @@ _Author: Ritchie Kwan_
 
 
 ## Presentation
-[Insert Deck Here](https://www.google.com)
+[Rating Yelp Dishes](https://docs.google.com/presentation/d/1AJK0bjvfv5uJDRuppb7xC9GwR_sUUkeGrc7KPsJZdw0/edit?usp=sharing)
 
 
 ## Problem Statement
@@ -33,7 +33,7 @@ Sentiment analysis on specific parts of reviews that mention individual food ite
 
 ## Assumptions
 With a sufficient number of reviews that mention a particular dish, the quality of a menu item's can be accurately predicted by aggregating the sentiment of the reviews.
-It is assumed that Yelp has already removed fake reviews, so all reviews being analyzed have honest sentiments. 
+It is assumed that Yelp has already removed fake reviews, so all reviews being analyzed have honest sentiments.
 
 
 ## Executive Summary
@@ -67,10 +67,6 @@ This is an unsupervised analysis, so the metric of success is getting a sufficie
 
 ### Limitations
 * Sentence fragment extraction is performed on single sentences. The sentiment of a multi-sentence fragment like "I got the onion soup. It was delicious." is missed.
-* Dish-level Sentence fragments may still include sentiments meant for a different entity. 
+* Dish-level Sentence fragments may still include sentiments meant for a different entity.
     * Example sentence: "The onion soup was great, the steak was terrible, the lemon tarte was delicious." will get processed as `"the onion soup was great the steak was terrible the"` instead of `"the onion soup was great"`.
 * Converting sentiment score to stars requires tuning. The current version uniformly distributes the score range `[-1,1]` to discrete stars `[1,5]`. In reality a score between `[-1, .1]` could all be 1 star ratings.
-
-
-
-
