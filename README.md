@@ -7,17 +7,17 @@ _Author: Ritchie Kwan_
 
 ## Table of Contents
 
-0. [Converting Yelp's JSON files to CSV](code/00-Converting-JSON-to-CSV.ipynb)
-1. [Cleaning Data](code/01-Cleaning-Data.ipynb)
-1. [Exploratory Data Analysis](code/02-EDA.ipynb)
-1. [Selecting Data](code/03.1-selecting-a-restaurant.ipynb)
+0. [Converting Yelp's JSON files to CSV](code/00-converting-json-to-csv.ipynb)
+1. [Cleaning Data](code/01-cleaning-data.ipynb)
+1. [Exploratory Data Analysis](code/02-eda.ipynb)
+1. [Selecting Data](code/04.1-selecting-a-restaurant.ipynb)
 1. Data Preparation
-    1. [Extracting Sentences](code/03.2-splitting-to-sentences.ipynb)
-    1. [Extracting Chunks](code/03.3-splitting-to-chunks.ipynb)
-1. [Sentiment Intensity Analysis](code/04-rating-dishes.ipynb)
+    1. [Extracting Sentences](code/04.2-splitting-to-sentences.ipynb)
+    1. [Extracting Chunks](code/04.3-splitting-to-chunks.ipynb)
+1. [Sentiment Intensity Analysis](code/04-rating-dishes-per-restaurant.ipynb)
     1. Predicting a Dish's Sentiment Score
     1. Converting Sentiment Score to Stars
-    1. [EDA on Results](code/05-results-EDA)
+    1. [EDA on Results](code/05-results-eda.ipynb)
 
 
 ## Presentation
