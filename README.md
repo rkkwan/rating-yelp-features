@@ -18,7 +18,6 @@ _Author: Ritchie Kwan_
     1. Predicting a Dish's Sentiment Score
     1. Converting Sentiment Score to Stars
     1. [EDA on Results](code/05-results-EDA)
-    1. Recommendations
 
 
 ## Presentation
