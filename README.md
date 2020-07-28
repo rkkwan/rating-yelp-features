@@ -25,44 +25,60 @@ _Author: Ritchie Kwan_
 
 
 ## Problem Statement
-A single 5-star rating system on a restaurant does not specifically measure the quality of its individual dishes. A 4.5-star restaurant does not mean all of its dishes are 4.5 star dishes. It could have a variance of 5-star dishes, 4-star dishes, maybe a couple 2-star dishes. A Yelper should be able to immediately see what dishes are truly worth ordering.
+A single 5-star rating system on a restaurant might give you an idea of which restaurant to go to, but it does not specifically rate any particular feature. Key features could be specific menu items, freshness, tastiness, service, speediness, cleanliness. A 4.5-star restaurant does not mean all of its dishes are 4.5 star dishes. It could have 5-star dishes, probably a few 1-star dishes, 4-star service, 2-star speediness. A Yelper should be able to immediately see what dishes are recommended by reviewers, which restaurant has the best service, and so on.
 
-Sentiment analysis on specific parts of reviews that mention individual food items can predict the true rating of each food item.
+Enter **[Named-Entity Recognition]**(https://en.wikipedia.org/wiki/Named-entity_recognition) (NER) and **[Sentiment Intensity Analysis]**(https://www.kdnuggets.com/2018/08/emotion-sentiment-analysis-practitioners-guide-nlp-5.html) (SIA).
+
+Performing NER to detect key features of a restaurant, then SIA to predict the average sentimental score of those features can provide more detailed insight about a business than a generalized star rating. SIA on sentence fragments of reviews that mention specific menu items can predict the true rating of each dish.
 
 
 ## Assumptions
 With a sufficient number of reviews that mention a particular dish, the quality of a menu item's can be accurately predicted by aggregating the sentiment of the reviews.
-It is assumed that Yelp has already removed fake reviews, so all reviews being analyzed have honest sentiments.
+It is assumed that Yelp has already removed fake reviews, so all reviews being analyzed have honest opinions.
 
 
 ## Executive Summary
 ### Goal
-Predict the quality of a restaurant's individual menu items by analyzing the sentiment of reviews that talk about food items.
+Predict the quality of a restaurant's menu items and key features by analyzing fragments of reviews that mention specific menu items and features of interest.  Features may include: Tastiness, quality of service, cleanliness of bathrooms, speediness.
 
-#### Use Case 1:  A Yelper wants to know the best dishes to order at a certain restaurant.
-Select a restaurant.
-Collect all reviews from that restaurant.
-Sentiment analysis is performed. Each dish is given a rating out of 5 stars.
-Display menu items sorted by rating.
-Result: The top listed items should be the restaurant's most popular dishes.
+#### Use Case 1:  Yelper wants to know the best dishes to order at a certain restaurant.
+1. Select a restaurant.
+2. Collect all reviews from that restaurant.
+3. Perform NER and SIA. Predict a rating for each dish.
+4. Display menu items, sorted by rating.
+5. Result: The top-rated dishes are the restaurant's highest recommended menu items.
 
-#### Use Case 2: A Yelper wants to know where to get the best dish in a certain region.
-Select a food item and a region (zip code, city).
-Find all restaurants in the region that serve the food item.
-Sentiment analysis is performed on the food itme for each restaurant and is given a rating out of 5 stars.
-The restaurants are sorted by rating of the food item.
-Result: The top listed restaurants should serve the best version of that food item.
+#### Use Case 2: Yelper wants to know where to get the best dish in a certain region.
+1. Select a dish and a region (zip code, city).
+2. Find all restaurants in the region that serve the dish.
+3. Perform NER and SIA on reviews that mention the dish for each restaurant and predict a rating for each restaurant.
+4. Display the restaurants, sorted by rating of the dish.
+5. Result: The top-rated restaurants serve the best versions of that dish.
 
+#### Use Case 3: Yelper wants to get an overview of a restaurant's key features.
+1. Select a restaurant.
+2. Collect all reviews from that restaurant.
+3. Perform NER and SIA. Predict a rating for each key feature.
+4. Display the key features, sorted by rating.
+5. Result: The top-rated features are the restaurant's best features.
 
 
 ## Statistical Analysis
 
 ### Metrics
-This is an unsupervised analysis, so the metric of success is getting a sufficiently diverse distribution of sentiment scores / ratings for each restaurant's menu items. Comparing the predicted best dishes to Yelp's current recommendations (most reviewed dishes) could be viable metric.
-
+This is an unsupervised analysis, so the metric of success is getting a sufficiently diverse distribution of sentiment scores / ratings for each restaurant's menu items. Comparing the predicted best dishes to Yelp's most reviewed dishes could be a viable metric.
 
 ### Findings
-* Preliminary analysis used the most reviewed restaurant in the dataset with over 8000 reviews. Most restaurants have less than 100 reviews, so performing the same analysis on such a small sample of reviews may produce unreliable results.
+* Preliminary analysis features Mon Ami Gabi, the most reviewed restaurant in the dataset with 7968 reviews. Most restaurants have less than 100 reviews, so performing the same analysis on such a small sample of reviews may produce unreliable results.
+* SIA was performed at three levels of detail: Review, Sentence, and Chunk. Chunks are sentence fragments containing up to 7 words before and after the entity of interest. Chunk-level SIA proved have the highest variance of sentiment scores.
+
+#### Example: Entity of interest is *onion soup*.
+##### Most positive Chunks
+![onion-soup-pos](images/onion-soup-pos.png)
+##### Most negative chunks
+![onion-soup-neg](images/onion-soup-neg.png)
+##### Average sentiment chunks
+![onion-soup-avg](images/onion-soup-avg.png)
 
 ### Limitations
 * Sentence fragment extraction is performed on single sentences. The sentiment of a multi-sentence fragment like "I got the onion soup. It was delicious." is missed.
