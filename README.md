@@ -27,9 +27,9 @@ _Author: Ritchie Kwan_
 ## Problem Statement
 A single 5-star rating system on a restaurant might give you an idea of which restaurant to go to, but it does not specifically rate any particular feature. Key features could be specific menu items, freshness, tastiness, service, speediness, cleanliness. A 4.5-star restaurant does not mean all of its dishes are 4.5 star dishes. It could have 5-star dishes, probably a few 1-star dishes, 4-star service, 2-star speediness. A Yelper should be able to immediately see what dishes are recommended by reviewers, which restaurant has the best service, and so on.
 
-Enter **[Named-Entity Recognition]**(https://en.wikipedia.org/wiki/Named-entity_recognition) (NER) and **[Sentiment Intensity Analysis]**(https://www.kdnuggets.com/2018/08/emotion-sentiment-analysis-practitioners-guide-nlp-5.html) (SIA).
+Enter **[Named-Entity Recognition](https://en.wikipedia.org/wiki/Named-entity_recognition)** (NER) and **[Sentiment Intensity Analysis](https://www.kdnuggets.com/2018/08/emotion-sentiment-analysis-practitioners-guide-nlp-5.html)** (SIA).
 
-Performing NER to detect key features of a restaurant, then SIA to predict the average sentimental score of those features can provide more detailed insight about a business than a generalized star rating. SIA on sentence fragments of reviews that mention specific menu items can predict the true rating of each dish.
+Performing NER to detect key features of a restaurant, then SIA to predict the  sentimental score of those features can provide more detailed insight about a business than a generalized star rating. SIA on sentence fragments of reviews that mention specific menu items can predict the true rating of each dish.
 
 
 ## Assumptions
@@ -47,6 +47,8 @@ Predict the quality of a restaurant's menu items and key features by analyzing f
 3. Perform NER and SIA. Predict a rating for each dish.
 4. Display menu items, sorted by rating.
 5. Result: The top-rated dishes are the restaurant's highest recommended menu items.
+
+![monamigabi-best](images/monamigabi-best.png)
 
 #### Use Case 2: Yelper wants to know where to get the best dish in a certain region.
 1. Select a dish and a region (zip code, city).
