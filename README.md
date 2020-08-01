@@ -101,5 +101,6 @@ This is an unsupervised analysis, so the metric of success is getting a sufficie
 * Sentence fragments may still include sentiments meant for a different entity.
     * Example sentence: "The onion soup was great, the steak was terrible, the lemon tarte was delicious." will get processed as `"the onion soup was great the steak was terrible the"` instead of `"the onion soup was great"`.
 * Converting sentiment score to stars requires fine tuning. The current version uniformly distributes the score range `[-1,1]` to discrete stars `[1,5]`. In reality a score between `[-1, .1]` could all be 1 star ratings.
+* Sentiments about certain features can be unbalanced due to the nature of the feature. Reviewers are more likely to write about bad service than good service. The same could apply to features like cleanliness.
 * NER performance could be improved by capturing more name variations. Or, Yelp could add a tagging functionality so reviewers could tag keywords like dish names and key features.  
 * SIA could be improved by tuning a custom sentiment model to accurately evaluate slang.
