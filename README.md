@@ -94,6 +94,9 @@ This is an unsupervised analysis, so the metric of success is getting a sufficie
 ##### Average sentiment chunks
 ![onion-soup-avg](images/onion-soup-avg.png)
 
+##### Distribution of sentiment by level of detail: Review, Sentence, and Chunk
+![sia-by-level-of-detail](images/sia-by-level-of-detail.png)
+
 
 ### Challenges / Improvements
 * Determining how many times an entity should be mentioned to have a reliable rating.
