@@ -96,6 +96,7 @@ This is an unsupervised analysis, so the metric of success is getting a sufficie
 
 ##### Distribution of sentiment by level of detail: Review, Sentence, and Chunk
 ![sia-by-level-of-detail](images/sia-by-level-of-detail.png)
+Review-level SIA is inflated to 1.0, so aggregating the scores may not be very useful. Sentence and Chunk-level SIA result in higher spreads of sentiment scores and will therefore produce more meaningful results when comparing restaurants. 
 
 
 ### Challenges / Improvements
