@@ -1,5 +1,5 @@
 # Rating Restaurant Features using Yelp Reviews
-Analyzing Yelpers' sentiments to rate a restaurant' dishes,
+Analyzing Yelpers' sentiments of specific entities to rate a restaurant's dishes and key features.
 
 _Author: Ritchie Kwan_
 
@@ -67,8 +67,10 @@ Predict the quality of a restaurant's menu items and key features by analyzing f
 1. Select a restaurant.
 2. Collect all reviews from that restaurant.
 3. Perform NER and SIA. Predict a rating for each key feature.
-4. Display the key features, sorted by rating.
+4. Display the key features.
 5. Result: The top-rated features are the restaurant's best features.
+
+![monamigabi-features](images/monamigabi-features.png)
 
 
 ## Statistical Analysis
@@ -93,9 +95,11 @@ This is an unsupervised analysis, so the metric of success is getting a sufficie
 ![onion-soup-avg](images/onion-soup-avg.png)
 
 
-### Challenges
+### Challenges / Improvements
 * Determining how many times an entity should be mentioned to have a reliable rating.
 * Sentence fragment extraction is performed on single sentences. The sentiment of a multi-sentence fragment like "I ordered the french onion soup. It was delicious." is missed. This is a challenge of context, i.e. determining which entity "it" is referring to.
 * Sentence fragments may still include sentiments meant for a different entity.
     * Example sentence: "The onion soup was great, the steak was terrible, the lemon tarte was delicious." will get processed as `"the onion soup was great the steak was terrible the"` instead of `"the onion soup was great"`.
 * Converting sentiment score to stars requires fine tuning. The current version uniformly distributes the score range `[-1,1]` to discrete stars `[1,5]`. In reality a score between `[-1, .1]` could all be 1 star ratings.
+* NER performance could be improved by capturing more name variations. Or, Yelp could add a tagging functionality so reviewers could tag keywords like dish names and key features.  
+* SIA could be improved by tuning a custom sentiment model to accurately evaluate slang.
