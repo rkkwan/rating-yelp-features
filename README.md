@@ -13,9 +13,10 @@ _Author: Ritchie Kwan_
 4. Preparing Data
     1. [Extracting Sentences](code/04.1-extracting-sentences.ipynb)
     2. [Extracting Chunks](code/04.2-extracting-chunks.ipynb)
-5. [Rating Dishes](code/05-rating-dishes.ipynb)
-    1. Predicting a Dish's Sentiment Score
-    2. Converting Sentiment Score to Stars
+5. Rating Entities
+    1. UC01 - [Rating Dishes](code/05.1-rating-dishes.ipynb)
+    2. UC02 - [Rating Key Features](code/05.2-rating-features.ipynb)
+    3. UC03 - Best Dish in Town(WIP)
 6. [Evaluating Predictions](code/06-evaluating-predictions.ipynb)
 
 
@@ -55,15 +56,7 @@ Predict the quality of a restaurant's menu items and key features by analyzing f
 ![monamigabi-worst](images/monamigabi-worst.png)
 
 
-#### Use Case 2: Yelper wants to know where to get the best dish in a certain region.
-1. Select a dish and a region (zip code, city).
-2. Find all restaurants in the region that serve the dish.
-3. Perform NER and SIA on reviews that mention the dish for each restaurant and predict a rating for each restaurant.
-4. Display the restaurants, sorted by rating of the dish.
-5. Result: The top-rated restaurants serve the best versions of that dish.
-
-
-#### Use Case 3: Yelper wants to get an overview of a restaurant's key features.
+#### Use Case 2: Yelper wants to get an overview of a restaurant's key features.
 1. Select a restaurant.
 2. Collect all reviews from that restaurant.
 3. Perform NER and SIA. Predict a rating for each key feature.
@@ -71,6 +64,14 @@ Predict the quality of a restaurant's menu items and key features by analyzing f
 5. Result: The top-rated features are the restaurant's best features.
 
 ![monamigabi-features](images/monamigabi-features.png)
+
+
+#### Use Case 3: Yelper wants to know where to get the best version of a dish in town.
+1. Select a dish and a region (zip code, city).
+2. Find all restaurants in the region that serve the dish.
+3. Perform NER and SIA on reviews that mention the dish for each restaurant and predict a rating for each restaurant.
+4. Display the restaurants, sorted by rating of the dish.
+5. Result: The top-rated restaurants serve the best versions of that dish.
 
 
 ## Statistical Analysis
@@ -96,7 +97,7 @@ This is an unsupervised analysis, so the metric of success is getting a sufficie
 
 ##### Distribution of sentiment by level of detail: Review, Sentence, and Chunk
 ![sia-by-level-of-detail](images/sia-by-level-of-detail.png)
-Review-level SIA is inflated to 1.0, so aggregating the scores may not be very useful. Sentence and Chunk-level SIA result in higher spreads of sentiment scores and will therefore produce more meaningful results when comparing restaurants. 
+Review-level SIA is inflated to 1.0, so aggregating the scores may not be very useful. Sentence and Chunk-level SIA result in higher spreads of sentiment scores and will therefore produce more meaningful results when comparing restaurants.
 
 
 ### Challenges / Improvements
